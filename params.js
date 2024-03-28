@@ -2,6 +2,9 @@ const express = require("express");
 const app = express();
 
 // Middleware to parse JSON bodies
+// In Express.js, app.use(express.json()) is middleware used to parse incoming requests with JSON payloads.
+// It is used to extract the JSON object from the request body and make it available
+// in req.body of your route handlers.
 app.use(express.json());
 
 // POST endpoint to create a new user

@@ -1,10 +1,8 @@
 // Importing the Express.js library and creating an Express application instance
 const express = require("express");
 const app = express();
-
 // Middleware to parse incoming JSON request bodies
 app.use(express.json());
-
 // Array to store todo items (for demonstration purposes)
 let todos = [
   { id: 1, title: "Learn Express.js", completed: false },
@@ -12,10 +10,20 @@ let todos = [
   { id: 3, title: "Build a CRUD App", completed: false },
   { id: 4, title: "Build a CRUD App", completed: false },
 ];
-
 // GET all todos
 app.get("/todos", (req, res) => {
   res.json(todos);
+});
+// POST a new todo
+app.post("/todos", (req, res) => {
+  // Extracting new todo from request body
+  const newTodo = req.body;
+  // Generating new ID for todo
+  newTodo.id = todos.length + 1;
+  // Adding new todo to the todos array
+  todos.push(newTodo);
+  // Sending newly created todo as JSON response with 201 status code (Created)
+  res.status(201).json(newTodo);
 });
 
 // GET todo by ID
@@ -28,18 +36,6 @@ app.get("/todos/:id", (req, res) => {
   if (!todo) return res.status(404).json({ error: "Todo not found" });
   // Sending found todo as JSON response
   res.json(todo);
-});
-
-// POST a new todo
-app.post("/todos", (req, res) => {
-  // Extracting new todo from request body
-  const newTodo = req.body;
-  // Generating new ID for todo
-  newTodo.id = todos.length + 1;
-  // Adding new todo to the todos array
-  todos.push(newTodo);
-  // Sending newly created todo as JSON response with 201 status code (Created)
-  res.status(201).json(newTodo);
 });
 
 // PUT update todo by ID
