@@ -1,11 +1,14 @@
 {
   "dependencies": {
-    "express": "^4.18.3"
+    "cookie-parser": "^1.4.6",
+    "express": "^4.18.3",
+    "jsonwebtoken": "^9.0.2",
+    "multer": "^1.4.5-lts.1",
+    "nodemon": "^3.1.0"
   },
   "name": "backend",
   "version": "1.0.0",
   "main": "Middleware.js",
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
