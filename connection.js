@@ -7,8 +7,7 @@ const app = express(); // Create an Express application instance
 const port = 3000; // Define the port number for the server
 
 // MongoDB Atlas connection URL
-const mongoURL =
-  "mongodb+srv://admin:mern_123@collegecluster.yd9dyhi.mongodb.net/collegedb";
+const mongoURL = "UR DB Connection String Here";
 
 // Define a Mongoose Schema for the document
 const documentSchema = new mongoose.Schema({
